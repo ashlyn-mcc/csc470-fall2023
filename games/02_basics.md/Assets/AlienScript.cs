@@ -9,7 +9,6 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject Planet;
     public GameObject Stars;
 
-    // Start is called before the first frame update
     void Start()
     {
         generateAlien();
@@ -43,7 +42,6 @@ public class NewBehaviourScript : MonoBehaviour
                 }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -53,7 +51,6 @@ public class NewBehaviourScript : MonoBehaviour
 	    Planet.transform.position = Planet.transform.forward * 4f * Time.deltaTime;
             }
 	    
-	// Create a "Rain" object to fall in a random position over the plain.
         float x = Random.Range(-150, 150);
         float y = 200;
         float z = Random.Range(-150, 150);
