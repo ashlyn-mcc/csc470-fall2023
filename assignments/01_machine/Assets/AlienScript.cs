@@ -32,11 +32,11 @@ public class NewBehaviourScript : MonoBehaviour
             
              }
         
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 10; i = i/2)
             {
-                float x2 = 14 - (i * 10);
-                float y2 = 4;
-                float z2 = 4;
+                float x2 = -2 + i;
+                float y2 = 7;
+                float z2 = -4;
                 Vector3 lineposition = new Vector3(x2, y2, z2);
             
                 GameObject AlienPre2 = Instantiate(AlienPrefab, lineposition, Quaternion.identity);
