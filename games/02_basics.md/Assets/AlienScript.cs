@@ -7,6 +7,7 @@ public class NewBehaviourScript : MonoBehaviour
     
     public GameObject AlienPrefab;
     public GameObject Planet;
+    public GameObject Stars;
 
     // Start is called before the first frame update
     void Start()
@@ -31,10 +32,10 @@ public class NewBehaviourScript : MonoBehaviour
             
              }
         
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 10; i++)
             {
-                float x2 = 14 - (i * 10);
-                float y2 = 4;
+                float x2 = 65 - (i*11);
+                float y2 = 103 - (i*10);
                 float z2 = 4;
                 Vector3 lineposition = new Vector3(x2, y2, z2);
             
@@ -45,11 +46,20 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetMouseButtonDown(0))
             {
-            Vector3 pos = new Vector3(27,78,2);
-            GameObject falling = Instantiate(Planet, pos, Quaternion.identity);
+	    Vector3 pposition = new Vector3(85, 103, 3);
+            GameObject Planet1 = Instantiate(Planet, pposition, Quaternion.identity);
+	    Planet.transform.position = Planet.transform.forward * 4f * Time.deltaTime;
             }
+	    
+	// Create a "Rain" object to fall in a random position over the plain.
+        float x = Random.Range(-150, 150);
+        float y = 200;
+        float z = Random.Range(-150, 150);
+        Vector3 pos = new Vector3(x, y, z);
+        GameObject rain = Instantiate(Stars, pos, Quaternion.identity);
+        Destroy(rain, 7);
     }
     
 }

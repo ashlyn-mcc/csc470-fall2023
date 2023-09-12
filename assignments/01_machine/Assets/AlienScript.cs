@@ -32,7 +32,7 @@ public class NewBehaviourScript : MonoBehaviour
             
              }
         
-        for (int i = 0; i < 10; i = i/2)
+        for (int i = 0; i < 10; i++)
             {
                 float x2 = -2 + i;
                 float y2 = 7;
