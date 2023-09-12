@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3519847678688088129}
   - component: {fileID: 832011233314342318}
   - component: {fileID: 207543432257053283}
-  - component: {fileID: -6559173763273683833}
+  - component: {fileID: 2080732202449182488}
   m_Layer: 0
   m_Name: AlienPre
   m_TagString: Untagged
@@ -54,7 +54,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5, y: 9, z: 3}
+  m_Size: {x: 5, y: 11, z: 3}
   m_Center: {x: 0, y: 5, z: 0}
 --- !u!54 &207543432257053283
 Rigidbody:
@@ -83,7 +83,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-6559173763273683833
+--- !u!114 &2080732202449182488
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,10 +92,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 397222100760444364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f767aa8727c1f47e1a788c65a984d5f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a97030299cd142bdae5a1c78f66faf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AlienPrefab: {fileID: 397222100760444364}
+  AlienPrefab: {fileID: 0}
 --- !u!1001 &3966676565403227108
 PrefabInstance:
   m_ObjectHideFlags: 0
