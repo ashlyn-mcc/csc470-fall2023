@@ -17,16 +17,17 @@ public class NewBehaviourScript : MonoBehaviour
     
     void generateAlien()
     {
-         for (int i = 0; i < 50; i++)
+         for (int i = 0; i < 10; i++)
             {
             
-            float circle = 2 * Mathf.PI / 50 * i;
+            float circle = 2 * Mathf.PI / 10 * i;
             float x = Mathf.Cos(circle);
             float y = 0;
             float z = Mathf.Sin(circle);
             Vector3 circlePosition = new Vector3(x, y, z);
-            
-            var gamePosition = circlePosition * 60;
+           
+            var center = new Vector3(-5, -22, 41);
+            var gamePosition = circlePosition + center * 10;
             GameObject AlienPre = Instantiate(AlienPrefab, gamePosition, Quaternion.identity);
             
              }

@@ -92,10 +92,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 397222100760444364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a97030299cd142bdae5a1c78f66faf1, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d9a506783f624d24a0a8ee42dfe5888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AlienPrefab: {fileID: 0}
+  AlienPrefab: {fileID: 397222100760444364}
   Planet: {fileID: 0}
 --- !u!1001 &3966676565403227108
 PrefabInstance:
