@@ -16,7 +16,7 @@ public class RobotScript : MonoBehaviour
         }
         else {
             Renderer rend = gameObject.GetComponentInChildren<Renderer>();
-            rend.material.SetColor("_Color", Color.cyan);
+            rend.material.SetColor("_Color", Color.red);
         }
     }
    
@@ -30,7 +30,7 @@ public class RobotScript : MonoBehaviour
         }
         else {
             Renderer rend = gameObject.GetComponentInChildren<Renderer>();
-            rend.material.SetColor("_Color", Color.cyan);
+            rend.material.SetColor("_Color", Color.red);
 
         }
     }

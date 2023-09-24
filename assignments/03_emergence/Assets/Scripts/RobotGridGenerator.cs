@@ -5,10 +5,10 @@ using UnityEngine;
 public class RobotGridGenerator : MonoBehaviour{
 
 // sets number of columns in grid
-int columns = 40;
+int columns = 30;
 
 // sets number of rows in grid
-int rows = 10;
+int rows = 11;
 
 public GameObject robotPrefab;
 public GameObject boxPrefab;
@@ -28,13 +28,13 @@ RobotScript[,] updated;
         {
             for (int y = 0; y < rows; y++)
             {
-                float robotHeight = 2.3f;
-                float robotWidth = 1f;
-                float spacingX = 0.5f;
-                float spacingY = 0.2f;
+                float robotHeight = 4.6f;
+                float robotWidth = 2f;
+                float spacingX = 1f;
+                float spacingY = 0.4f;
 
-                float boxHeight = 2.5f;
-                float boxWidth = 1.5f;
+                float boxHeight = 5f;
+                float boxWidth = 3f;
                 float boxSpacing = 0f;
 
                 Vector3 pos = transform.position;
