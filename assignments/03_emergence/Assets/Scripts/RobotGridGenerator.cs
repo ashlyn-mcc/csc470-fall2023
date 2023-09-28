@@ -5,16 +5,22 @@ using UnityEngine;
 public class RobotGridGenerator : MonoBehaviour{
 
 // sets number of columns in grid
-int columns = 30;
+int columns = 35;
 
 // sets number of rows in grid
-int rows = 11;
+int rows = 10;
 
+int counter = 0;
+
+// Prefabs used to generate grid of robots 
 public GameObject robotPrefab;
 public GameObject boxPrefab;
+
+// Placeholders used to store new neighborhood data
 public GameObject RobotPlaceholder;
 private GameObject[] MyPlaceholders;
 
+// 2D arrays used to store neighborhood status
 RobotScript[,] robots;
 RobotScript[,] updated;
 
@@ -28,14 +34,14 @@ RobotScript[,] updated;
         {
             for (int y = 0; y < rows; y++)
             {
-                float robotHeight = 4.6f;
-                float robotWidth = 2f;
+                float robotHeight = 2.2f;
+                float robotWidth = 1.5f;
                 float spacingX = 1f;
-                float spacingY = 0.4f;
+                float spacingY = 2.8f;
 
                 float boxHeight = 5f;
-                float boxWidth = 3f;
-                float boxSpacing = 0f;
+                float boxWidth = 1.5f;
+                float boxSpacing = 1f;
 
                 Vector3 pos = transform.position;
                 pos.x = pos.x + x * (robotWidth + spacingX);
@@ -58,18 +64,24 @@ RobotScript[,] updated;
     // Update is called once per frame
     void Update()
     {
+        counter++;
+        if (counter%200 == 0){
         updated =  new RobotScript[columns,rows];
         
+        // Goes through each element in the 2D array
         for (int x = 0; x < columns; x++)
         {
             for (int y = 0; y < rows; y++)
             {
+                // Used in neighborhood calculations
                 float numNeighbors = 0f;
                 float neighborSum = 0f;
 
+                // Empty game object created to store updated data in new Robot script
                 GameObject placeholder = Instantiate(RobotPlaceholder, transform.position, transform.rotation);
                 updated[x,y] = placeholder.GetComponent<RobotScript>();
 
+                //Conditionals depending on location of the robot in the grid
                 if ((x == 0) && (y == 0))
                 {
                     numNeighbors = topLeftCorner(x, y, neighborSum);
@@ -115,7 +127,7 @@ RobotScript[,] updated;
                     numNeighbors = Central(x, y, neighborSum);
                 }
             
-
+                // Game of life rules implemented
                 if ((robots[x, y].alive == false) && (numNeighbors == 3))
                 {
                     updated[x, y].alive = true;
@@ -129,8 +141,10 @@ RobotScript[,] updated;
                     updated[x,y].alive = robots[x, y].alive;
                 }
             }
+            
         }
 
+        // Transfer updated neighborhood to original 2D array
         for (int x = 0; x < columns; x++)
         {
             for (int y = 0; y < rows; y++)
@@ -139,19 +153,17 @@ RobotScript[,] updated;
             }
         }
 
+
+        // Finds and destroys the placeholder game objects 
         MyPlaceholders = GameObject.FindGameObjectsWithTag("Placeholder");
-
-        // for (int i=0; i<MyPlaceholders.Length; i++){
-        // DestroyObject(MyPlaceholders);
-        // }
-
         foreach (GameObject empty in MyPlaceholders)
         {
             GameObject.Destroy(empty);
         }
-        
+        }
     }
 
+// Neighborhood analysis of central robots
     float Central(int x, int y, float Sum1)
     {
 
@@ -171,6 +183,7 @@ RobotScript[,] updated;
          return Sum1;
     }
 
+// Neighborhood analysis of robots on left edge
     float leftEdge(int x, int y, float Sum2)
     {
         for (int x2 = 0; x2 < 2; x2++)
@@ -189,6 +202,7 @@ RobotScript[,] updated;
          return Sum2;
     }
 
+// Neighborhood analysis of robots on top edge
      float topEdge(int x, int y, float Sum3)
      {
             if (robots[x - 1, y].alive) 
@@ -214,6 +228,7 @@ RobotScript[,] updated;
             return Sum3;
      }
 
+// Neighborhood analysis of robots on right edge
     float rightEdge(int x, int y, float Sum4)
     {
         for (int x2 = -1; x2 < 1; x2++)
@@ -232,6 +247,7 @@ RobotScript[,] updated;
          return Sum4;
     }
 
+// Neighborhood analysis of robots on bottom edge
      float bottomEdge(int x, int y, float Sum5)
      {
         for (int x2 = -1; x2 < 2; x2++)
@@ -250,6 +266,7 @@ RobotScript[,] updated;
          return Sum5;
      }
 
+// Neighborhood analysis of robot at top left corner
     float topLeftCorner(int x, int y, float Sum6)
     {  
         if (robots[x + 1, y].alive)
@@ -268,7 +285,8 @@ RobotScript[,] updated;
         return Sum6;
 
     }
-        
+
+// Neighborhood analysis of robot at bottom right corner
     float bottomRightCorner(int x, int y, float Sum7)
     {  
         if (robots[x, y - 1].alive)
@@ -288,6 +306,7 @@ RobotScript[,] updated;
 
     }
 
+// Neighborhood analysis of robot at bottom left corner
     float bottomLeftCorner(int x, int y, float Sum8)
     {  
         if (robots[x, y - 1].alive)
@@ -307,6 +326,7 @@ RobotScript[,] updated;
 
     }
 
+// Neighborhood analysis of robot at top right corner
     float topRightCorner(int x, int y, float Sum9)
     {  
         if (robots[x - 1, y].alive)
