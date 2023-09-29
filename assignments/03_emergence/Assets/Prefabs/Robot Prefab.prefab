@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alive: 0
+  dronePrefab: {fileID: 8773909324968300333, guid: f29ee6a5c90aa41338c8ea1d0d7c2cb5, type: 3}
 --- !u!1001 &8723222047554681176
 PrefabInstance:
   m_ObjectHideFlags: 0

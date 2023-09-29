@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 14b90fd70ef77487b95bed3981e4e568
+guid: 946d1772f02584f09bdeee7c50e4bedf
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - dronePrefab: {fileID: 8773909324968300333, guid: f29ee6a5c90aa41338c8ea1d0d7c2cb5, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -12,6 +12,9 @@ int rows = 10;
 
 int counter = 0;
 
+//public GameObject dronePrefab;
+
+
 // Prefabs used to generate grid of robots 
 public GameObject robotPrefab;
 public GameObject boxPrefab;
@@ -65,7 +68,7 @@ RobotScript[,] updated;
     void Update()
     {
         counter++;
-        if (counter%200 == 0){
+        if (counter%100 == 0){
         updated =  new RobotScript[columns,rows];
         
         // Goes through each element in the 2D array
@@ -131,6 +134,7 @@ RobotScript[,] updated;
                 if ((robots[x, y].alive == false) && (numNeighbors == 3))
                 {
                     updated[x, y].alive = true;
+                    
                 }
                 else if ((robots[x, y].alive == true) && ((numNeighbors < 2) || (numNeighbors > 3)))
                 {
@@ -139,6 +143,7 @@ RobotScript[,] updated;
                 else
                 {
                     updated[x,y].alive = robots[x, y].alive;
+
                 }
             }
             
@@ -150,6 +155,11 @@ RobotScript[,] updated;
             for (int y = 0; y < rows; y++)
             {
                 robots[x, y].alive = updated[x, y].alive;
+                    
+                    if (robots[x, y].alive)
+                    {
+                        robots[x, y].spawn = true;
+                    }
             }
         }
 
