@@ -25,9 +25,14 @@ public class CameraMovement : MonoBehaviour
 
     // Camera moves with mouse rotation (first person)
     void MouseRotation(){
-        y = Input.GetAxis("Mouse X");
-        x = Input.GetAxis("Mouse Y");
-        rotate = new Vector3(x * sensitivity2, y * sensitivity, 0);
+        y = Input.GetAxis("Mouse X") * sensitivity2;
+        x = Input.GetAxis("Mouse Y") * sensitivity;
+        
+        x = Mathf.Clamp(x, -45f, 45f);
+
+        rotate = new Vector3(x, y, 0);
         transform.eulerAngles = transform.eulerAngles - rotate;
+
+        
     }
 }
