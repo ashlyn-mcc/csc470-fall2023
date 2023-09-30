@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Placeholder
   - Drone
+  - Laser
   layers:
   - Default
   - TransparentFX
