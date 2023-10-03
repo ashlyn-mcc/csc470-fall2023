@@ -4,7 +4,6 @@ using UnityEngine;
 public class RobotScript : MonoBehaviour
 {
     public bool alive = false;
-    private bool dontRepeat = true;
     public bool spawn = false;
 
 
@@ -40,19 +39,18 @@ public class RobotScript : MonoBehaviour
             rend.material.SetColor("_Color", Color.red);
         }
 
-        if ((spawn) && (dontRepeat)){
+        if (spawn){
             Vector3 posVal = transform.position;
             posVal.z = posVal.z + 10;
             Quaternion rotVal = Quaternion.Euler(0, 360, 0);
             GameObject droneObj = Instantiate(dronePrefab, posVal, rotVal);
             spawn = false;
-            dontRepeat = false;
         }
     }
 
     bool RandomBool()
     {
-        return (Random.value > 0.9f);
+        return (Random.value > 0.85f);
     }
 
 }

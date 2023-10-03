@@ -30,6 +30,7 @@ public class CameraMovement : MonoBehaviour
         
         x = Mathf.Clamp(x, -45f, 45f);
 
+
         rotate = new Vector3(x, y, 0);
         transform.eulerAngles = transform.eulerAngles - rotate;
 

@@ -14,7 +14,7 @@ public class DroneFlyingScrpit : MonoBehaviour
     void Update()
     {
         Vector3 posCam = new Vector3(39,31,99);
-        var movement = 8f * Time.deltaTime;
+        var movement = 6f * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position,posCam,movement);
     }
 
