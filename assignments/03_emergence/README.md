@@ -30,5 +30,22 @@ Placed on the instantiated robots in the game of life grid. Hold a boolean value
 
 ## Resources:
 I used these sources to help me with code and concepts that were outside the scope of what was learned in class:
-*
+* Camera rotation based on mouse:
+    * https://www.youtube.com/watch?app=desktop&v=CxI2OBdhLno
+* Math Clamp:
+    * https://docs.unity3d.com/ScriptReference/Mathf.Clamp.html
+* Animating lights to flash:
+    * https://www.youtube.com/watch?v=JuvY0fYVPM0
+* Move towards with Vector 3    
+    * https://docs.unity3d.com/ScriptReference/Vector3.MoveTowards.html
+* Coding Train Game of Life in JavaScript -- helpful to think through logic
+* https://www.youtube.com/watch?v=FWSR_7kZuYg
+
+## Things to Revisit:
+* Add score
+* Change counter system to time.deltatime
+* Use keyboard controls instead of mouse -- hard to control on laptop
+* Sensitivity of controls on WEBGL version
+* Game Over screen when drones reach player
+
  

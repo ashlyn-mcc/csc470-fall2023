@@ -15,6 +15,7 @@ public class LaserLaunch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Launches laser in the forward position of the player
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Vector3 pos = transform.position;

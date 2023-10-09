@@ -17,6 +17,7 @@ public class LaserScript : MonoBehaviour
         
     }
 
+// If laser collides with drone the laser is destroyed
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Drone"))

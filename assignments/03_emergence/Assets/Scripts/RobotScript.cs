@@ -12,12 +12,15 @@ public class RobotScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // picks random alive value (either alive or dead to start)
         alive = RandomBool();
 
+        // Makes robot black
         if (alive == false){
             Renderer rend = gameObject.GetComponentInChildren<Renderer>();
             rend.material.SetColor("_Color", Color.black);
         }
+        // Makes robot red
         else {
             Renderer rend = gameObject.GetComponentInChildren<Renderer>();
             rend.material.SetColor("_Color", Color.red);
@@ -39,6 +42,7 @@ public class RobotScript : MonoBehaviour
             rend.material.SetColor("_Color", Color.red);
         }
 
+        // doesn't allow robots that already produced a drone produce another
         if (spawn){
             Vector3 posVal = transform.position;
             posVal.z = posVal.z + 10;
@@ -50,6 +54,7 @@ public class RobotScript : MonoBehaviour
 
     bool RandomBool()
     {
+        // returns true 15% of the time
         return (Random.value > 0.85f);
     }
 
