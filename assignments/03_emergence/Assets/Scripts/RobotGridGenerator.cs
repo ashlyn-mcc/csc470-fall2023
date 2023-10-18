@@ -68,7 +68,7 @@ RobotScript[,] updated;
     void Update()
     {
         counter++;
-        if (counter%400 == 0){
+        if (counter%300 == 0){
         updated =  new RobotScript[columns,rows];
         
         // Goes through each element in the 2D array
