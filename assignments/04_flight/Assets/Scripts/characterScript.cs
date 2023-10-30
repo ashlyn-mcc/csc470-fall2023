@@ -7,14 +7,26 @@ public class characterScript : MonoBehaviour
 
     private CharacterController cc;
     public GameObject cameraObject;
+    public GameObject playerPrefab;
+
     Vector3 myVector;
     Vector3 oldCamPos;
     Vector3 amountToMove;
+    Vector3 respawnPoint;
+    Quaternion initialRotation;
+
     float rotateSpeed = 60;
     float forwardSpeed = 75;
     float jumpForce = 230;
     float gravityModifier =20.0f;
+    float backMultiplier = 100;
+    float upwardMultiplier = 80;
+    float hAxis = 0.0f;
+    float vAxis = 0.0f;
+
+    public bool floorCollide = false;
     private bool changeCam = false;
+
 
 
     // gravity accumulator
@@ -24,21 +36,25 @@ public class characterScript : MonoBehaviour
     {
         // Get the character controller
         cc = GetComponent<CharacterController>();
+
+        initialRotation = transform.rotation;
     }
 
     void Update()
     {
 
         // Get axis
-        float hAxis = Input.GetAxis("Horizontal");
-        float vAxis = Input.GetAxis("Vertical");
+        hAxis = Input.GetAxis("Horizontal");
+        vAxis = Input.GetAxis("Vertical");
 
 
         
         if (!cc.isGrounded)
         {
             yVelocity += Physics.gravity.y * gravityModifier * Time.deltaTime;
-        } else {
+        } 
+        else 
+        {
             yVelocity = -1;
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -46,21 +62,50 @@ public class characterScript : MonoBehaviour
             }
         }
 
+        // Camera looks at the game object 
         cameraObject.transform.LookAt(transform);
 
+        // Occurs once you reach end of first level 
         if (transform.position.x > 470){
             changeCam = true;
         }
 
-        if(changeCam){
+        if (changeCam){
+            level2();
+        }
+        else{
+           hAxisMovement();
+        }
 
+        if (transform.position.y < 338){
+            backMultiplier = 150;
+            upwardMultiplier = 75;
+            gravityModifier = 25.0f;
+            rotateSpeed = 120;
+            jumpForce = 75;
+            forwardSpeed = 75;
+        }
+
+            // account for gravity
+            amountToMove.y = yVelocity;
+
+            // Move character calculated amount
+            cc.Move(amountToMove * Time.deltaTime);
+
+        
+            
+
+    }
+
+
+    void level2(){
             myVector = transform.position - transform.forward * 50 ;
 
             // Player can now rotate
             transform.Rotate(0, hAxis * rotateSpeed * Time.deltaTime, 0, Space.Self);
 
             // Camera's new position is behind and above the player
-            Vector3 newCamPos = transform.position + -transform.forward * 100 + Vector3.up * 50;
+            Vector3 newCamPos = transform.position + -transform.forward * backMultiplier + Vector3.up * upwardMultiplier;
 
             // Handles null
             if (oldCamPos == null){
@@ -72,12 +117,17 @@ public class characterScript : MonoBehaviour
 
             // Sets new position as old position
             oldCamPos = newCamPos;
+            jumpForce = 100;
+            gravityModifier = 7.0f;
+            forwardSpeed = 100;
+
+            amountToMove.z = hAxis * forwardSpeed;
 
             // moves character based on vertical axis
             amountToMove = vAxis * transform.forward * forwardSpeed;
-        }
+    }
 
-        else{
+    void hAxisMovement(){
             // Set vector that camera will be away from character
             myVector = new Vector3(1.0f, 1.0f, 500.0f);
 
@@ -86,13 +136,20 @@ public class characterScript : MonoBehaviour
 
             // Move character based on horizontal axis
             amountToMove = hAxis * transform.forward * forwardSpeed;
-        }
+    }
 
-            // account for gravity
-            amountToMove.y = yVelocity;
+     private void OnTriggerEnter(Collider other)
+    {
+    if (other.gameObject.CompareTag("ground")) {
 
-            // Move character calculated amount
-            cc.Move(amountToMove * Time.deltaTime);
+        respawnPoint = new Vector3(-829.70f,807.39f,-685.0f);
+
+        GameObject player = Instantiate(playerPrefab, respawnPoint, initialRotation);
+
+        Destroy(gameObject);
 
     }
+    }
+
+
 }

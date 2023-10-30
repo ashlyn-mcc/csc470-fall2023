@@ -5,25 +5,15 @@ using UnityEngine;
 public class platformScript2 : MonoBehaviour
 {
 
-    float direction = 0.0f;
-    float speed = 0.0f;
+    float direction = 1.0f;
+    float speed = 0.1f;
+
+    public GameObject character; 
 
     // Start is called before the first frame update
     void Start()
     {
-        // Direction and speed of platformsrandomly generated at start
-        if (RandomBool()){
-            direction = 1.0f;
-        }
-        else{
-            direction = -1.0f;
-        }
-         if (RandomBool()){
-            speed = 0.75f;
-        }
-        else{
-            speed = 0.50f;
-        }
+
     }
 
     // Update is called once per frame
@@ -42,9 +32,6 @@ public class platformScript2 : MonoBehaviour
 
     }
 
-    bool RandomBool()
-    {
-        // returns true 50% of the time
-        return (Random.value > 0.5f);
-    }
+
+
 }
