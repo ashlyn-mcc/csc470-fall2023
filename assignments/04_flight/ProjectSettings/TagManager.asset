@@ -10,6 +10,8 @@ TagManager:
   - cat
   - Bullet
   - Ring
+  - finish
+  - ship
   layers:
   - Default
   - TransparentFX
