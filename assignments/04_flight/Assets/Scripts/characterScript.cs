@@ -80,9 +80,9 @@ public class characterScript : MonoBehaviour
         if (transform.position.y < 338){
             backMultiplier = 150;
             upwardMultiplier = 75;
-            gravityModifier = 25.0f;
+            gravityModifier = 15.0f;
             rotateSpeed = 120;
-            jumpForce = 75;
+            jumpForce = 100;
             forwardSpeed = 75;
         }
 
