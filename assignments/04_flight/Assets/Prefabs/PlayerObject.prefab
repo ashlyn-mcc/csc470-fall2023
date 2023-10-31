@@ -82,6 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraObject: {fileID: 0}
   playerPrefab: {fileID: 6680960307298810597}
+  shipPrefab: {fileID: 3433598896440136393, guid: ec1b7c0bb031643a2b37102c9720d4ea, type: 3}
   floorCollide: 0
 --- !u!1001 &5848917802535945959
 PrefabInstance:

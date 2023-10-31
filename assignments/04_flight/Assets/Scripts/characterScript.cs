@@ -8,11 +8,13 @@ public class characterScript : MonoBehaviour
     private CharacterController cc;
     public GameObject cameraObject;
     public GameObject playerPrefab;
+    public GameObject shipPrefab;
 
     Vector3 myVector;
     Vector3 oldCamPos;
     Vector3 amountToMove;
     Vector3 respawnPoint;
+    Vector3 shipSpawn;
     Quaternion initialRotation;
 
     float rotateSpeed = 60;
@@ -138,9 +140,9 @@ public class characterScript : MonoBehaviour
             amountToMove = hAxis * transform.forward * forwardSpeed;
     }
 
-     private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-    if (other.gameObject.CompareTag("ground")) {
+    if (other.gameObject.CompareTag("ground") || other.gameObject.CompareTag("cat")) {
 
         respawnPoint = new Vector3(-829.70f,807.39f,-685.0f);
 
@@ -149,7 +151,19 @@ public class characterScript : MonoBehaviour
         Destroy(gameObject);
 
     }
+
+    if (other.gameObject.CompareTag("toilet")) {
+        
+        if(GameManager.SharedInstance.complete)
+        {
+        GameManager.SharedInstance.changeSkybox(true);
+        Destroy(gameObject);
+        Debug.Log("this is happening");
+        }
     }
+
+    }
+
 
 
 }

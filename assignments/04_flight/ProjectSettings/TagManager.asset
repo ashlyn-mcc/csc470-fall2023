@@ -6,6 +6,9 @@ TagManager:
   tags:
   - ground
   - coin
+  - toilet
+  - cat
+  - Bullet
   layers:
   - Default
   - TransparentFX

@@ -5,12 +5,13 @@ using UnityEngine;
 public class shipScript : MonoBehaviour
 {
 
-    float forwardSpeed = 500f;
+    float forwardSpeed = 100;
 
     float xRotationSpeed = 100f;
     float yRotationSpeed = 50f;
     float zRotationSpeed = 100f;
 
+    public GameObject oldCam;
     public GameObject cameraObject;
 
     Vector3 oldCamPos;
@@ -24,6 +25,11 @@ public class shipScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.SharedInstance.ship){
+
+        oldCam.SetActive(false);
+        cameraObject.SetActive(true);
+
         float hAxis = Input.GetAxis("Horizontal");
         float vAxis = Input.GetAxis("Vertical");
 
@@ -35,7 +41,7 @@ public class shipScript : MonoBehaviour
 
         gameObject.transform.position += gameObject.transform.forward * Time.deltaTime * forwardSpeed;
 
-        Vector3 newCamPos = transform.position + -transform.forward * 200 + Vector3.up * 100;
+        Vector3 newCamPos = transform.position + -transform.forward * 150 + Vector3.up * 100;
         
         if (oldCamPos == null)
         {
@@ -45,4 +51,7 @@ public class shipScript : MonoBehaviour
         cameraObject.transform.LookAt(transform);
         oldCamPos = newCamPos;
     }
+        }
+
+       
 }
