@@ -5,7 +5,7 @@ using UnityEngine;
 public class shipScript : MonoBehaviour
 {
 
-    float forwardSpeed = 100;
+    float forwardSpeed = 200;
 
     float xRotationSpeed = 100f;
     float yRotationSpeed = 50f;
@@ -19,7 +19,6 @@ public class shipScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -53,5 +52,14 @@ public class shipScript : MonoBehaviour
     }
         }
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+    if (other.gameObject.CompareTag("Ring")) {
+        GameObject.Find("Particle System").GetComponent<ParticleSystem>().Play();
+        Debug.Log("Operational.");
+    }
+    }
        
 }

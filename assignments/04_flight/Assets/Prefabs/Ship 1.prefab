@@ -264,6 +264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 221901959218562466}
   - component: {fileID: 1322929291001210630}
+  - component: {fileID: 3741853826678423574}
   m_Layer: 0
   m_Name: Ship 1
   m_TagString: Untagged
@@ -301,6 +302,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oldCam: {fileID: 0}
   cameraObject: {fileID: 0}
+--- !u!65 &3741853826678423574
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5108576998609869489}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 67.66541, y: 55.362915, z: 99.05713}
+  m_Center: {x: -11.671345, y: -2.5853271, z: 17.95044}
 --- !u!1 &5319409517017756981
 GameObject:
   m_ObjectHideFlags: 0

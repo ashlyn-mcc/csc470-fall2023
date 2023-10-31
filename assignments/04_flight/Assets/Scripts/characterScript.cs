@@ -17,6 +17,8 @@ public class characterScript : MonoBehaviour
     Vector3 shipSpawn;
     Quaternion initialRotation;
 
+    private Animator anim;
+
     float rotateSpeed = 60;
     float forwardSpeed = 75;
     float jumpForce = 230;
@@ -38,7 +40,7 @@ public class characterScript : MonoBehaviour
     {
         // Get the character controller
         cc = GetComponent<CharacterController>();
-
+        anim = GetComponent<Animator>();
         initialRotation = transform.rotation;
     }
 
@@ -93,6 +95,7 @@ public class characterScript : MonoBehaviour
 
             // Move character calculated amount
             cc.Move(amountToMove * Time.deltaTime);
+            anim.Play("Run_Shoot", 0, 0.25f);
 
         
             
