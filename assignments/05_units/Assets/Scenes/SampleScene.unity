@@ -5476,7 +5476,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -364.7, y: 185.2}
+  m_AnchoredPosition: {x: -362.7, y: 185.2}
   m_SizeDelta: {x: 83.2442, y: 57.4028}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &162159425
@@ -5499,7 +5499,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5cd716a100b594c52bd0bf33ac26feb0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3d7f6bacb5aaa4a98ac1d95fd617eb9a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8698,7 +8698,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -364.10004, y: 135.19998}
+  m_AnchoredPosition: {x: -364.10004, y: 134.6}
   m_SizeDelta: {x: 83.2442, y: 57.4028}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &745854076
@@ -8721,7 +8721,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: eedeed97fb65e4091a57f586655e64fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ff02171e112564f5886464d65cfc7065, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8993,7 +8993,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bb46a268e56694117a9e2aa7c342f3ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8b9b46e4ec9df48efafdbdf072c4240b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -25754,7 +25754,7 @@ PrefabInstance:
     - target: {fileID: 8150606890305093712, guid: 5c878d6afaa9d411695e08fe3064cbb1, type: 3}
       propertyPath: clownfishPrefab
       value: 
-      objectReference: {fileID: 1399396581004626930, guid: 488e7bd7216004114a7608f0bfc32bdc, type: 3}
+      objectReference: {fileID: 9203738333474969789, guid: c791e572f622f40318a610c1c58a753c, type: 3}
     - target: {fileID: 8150606890305093712, guid: 5c878d6afaa9d411695e08fe3064cbb1, type: 3}
       propertyPath: parrotfishPrefab
       value: 
