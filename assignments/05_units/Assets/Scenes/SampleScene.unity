@@ -5476,7 +5476,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -362.7, y: 185.2}
+  m_AnchoredPosition: {x: -362.7, y: 114}
   m_SizeDelta: {x: 83.2442, y: 57.4028}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &162159425
@@ -8584,6 +8584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 737056951}
   - component: {fileID: 737056952}
+  - component: {fileID: 737056953}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -8664,6 +8665,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &737056953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737056950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e76063999449466b9e2d3d018618420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &745854074
 GameObject:
   m_ObjectHideFlags: 0
@@ -8698,7 +8711,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -364.10004, y: 134.6}
+  m_AnchoredPosition: {x: -364.2, y: 137.9}
   m_SizeDelta: {x: 83.2442, y: 57.4028}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &745854076
@@ -8721,7 +8734,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ff02171e112564f5886464d65cfc7065, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4eb6fac017d5c4e388d1bad5da0bfee7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10450,10 +10463,10 @@ RectTransform:
   - {fileID: 567461801}
   - {fileID: 737056951}
   - {fileID: 782377113}
-  - {fileID: 162159424}
+  - {fileID: 1530536094}
   - {fileID: 1736836655}
   - {fileID: 745854075}
-  - {fileID: 1530536094}
+  - {fileID: 162159424}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -18045,7 +18058,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -365.40005, y: 111.79999}
+  m_AnchoredPosition: {x: -362.8, y: 183.3}
   m_SizeDelta: {x: 83.2442, y: 57.4028}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1530536095
@@ -18068,7 +18081,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cf8e730b1c3394a5caf776f1082eafa7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8dc57723369e443638cdc30b0bf00fd3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -19180,7 +19193,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -361.70004, y: 158.99998}
+  m_AnchoredPosition: {x: -363, y: 159}
   m_SizeDelta: {x: 83.2442, y: 57.4028}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1736836656
@@ -25744,6 +25757,10 @@ PrefabInstance:
       value: GameManagerObj
       objectReference: {fileID: 0}
     - target: {fileID: 8150606890305093712, guid: 5c878d6afaa9d411695e08fe3064cbb1, type: 3}
+      propertyPath: mySlider
+      value: 
+      objectReference: {fileID: 737056952}
+    - target: {fileID: 8150606890305093712, guid: 5c878d6afaa9d411695e08fe3064cbb1, type: 3}
       propertyPath: fishPrefab
       value: 
       objectReference: {fileID: 8187666823971833511, guid: b3774a23a641b4c38ba7541efc478698, type: 3}
@@ -25752,13 +25769,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2517034463235882465, guid: 2a23c490bd58247e19348f8a67882832, type: 3}
     - target: {fileID: 8150606890305093712, guid: 5c878d6afaa9d411695e08fe3064cbb1, type: 3}
+      propertyPath: lionfishPrefab
+      value: 
+      objectReference: {fileID: 4659475679465746611, guid: 62472eb46713b47e4a0949bd29955229, type: 3}
+    - target: {fileID: 8150606890305093712, guid: 5c878d6afaa9d411695e08fe3064cbb1, type: 3}
+      propertyPath: bettafishPrefab
+      value: 
+      objectReference: {fileID: 7652951131560426260, guid: 1dc621dd4afa049cc9d3501af29ee3fd, type: 3}
+    - target: {fileID: 8150606890305093712, guid: 5c878d6afaa9d411695e08fe3064cbb1, type: 3}
       propertyPath: clownfishPrefab
       value: 
+      objectReference: {fileID: 7652951131560426260, guid: 1dc621dd4afa049cc9d3501af29ee3fd, type: 3}
+    - target: {fileID: 8150606890305093712, guid: 5c878d6afaa9d411695e08fe3064cbb1, type: 3}
+      propertyPath: swordfishPrefab
+      value: 
       objectReference: {fileID: 9203738333474969789, guid: c791e572f622f40318a610c1c58a753c, type: 3}
+    - target: {fileID: 8150606890305093712, guid: 5c878d6afaa9d411695e08fe3064cbb1, type: 3}
+      propertyPath: zebrafishPrefab
+      value: 
+      objectReference: {fileID: 4659475679465746611, guid: 62472eb46713b47e4a0949bd29955229, type: 3}
     - target: {fileID: 8150606890305093712, guid: 5c878d6afaa9d411695e08fe3064cbb1, type: 3}
       propertyPath: parrotfishPrefab
       value: 
       objectReference: {fileID: 1047290076213214194, guid: ad57724e5a7d54317b9637d5d43fdf21, type: 3}
+    - target: {fileID: 8150606890305093712, guid: 5c878d6afaa9d411695e08fe3064cbb1, type: 3}
+      propertyPath: pufferfishPrefab
+      value: 
+      objectReference: {fileID: 1286463221556038272, guid: da81979523d7b4d79a276ef43e15806f, type: 3}
     - target: {fileID: 8772921625571035048, guid: 5c878d6afaa9d411695e08fe3064cbb1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.1244226
