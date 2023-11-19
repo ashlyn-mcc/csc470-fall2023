@@ -4908,6 +4908,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[2]
       value: 
       objectReference: {fileID: 2100000, guid: 3c24e7ecda72b48c9b53208e725d9a6e, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 3ea065e503ae2468fbf2ebb513ce19ac, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 3ea065e503ae2468fbf2ebb513ce19ac, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 838b417b42dce4fa9981130182559e54, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

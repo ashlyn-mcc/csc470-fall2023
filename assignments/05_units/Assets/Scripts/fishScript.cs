@@ -9,7 +9,7 @@ bool direction = false;
 Vector3 swimming = new Vector3(1f,0f,0f);
 Vector3 currentEulerAngles;
 
-float[] Speeds = {0.5f, 1f, 1.5f, 2f, 2.5f, 3f, 3.5f, 4f};
+float[] Speeds = {0.5f, 0.75f, 1f, 1.25f, 1.5f};
 float speed = 1;
 
     // Start is called before the first frame update
