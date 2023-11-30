@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
 
+    private int NumOfFish = 0;
+    private GameObject value;
     public static GameManager SharedInstance;
 
+    public TMP_Text fishText;
     public Slider mySlider;
 
     fishScript selectedUnit;
@@ -17,6 +21,9 @@ public class GameManager : MonoBehaviour
     public GameObject parrotfishPrefab;
     public GameObject swordfishPrefab;
     public GameObject lionfishPrefab;
+    public GameObject foodPrefab;
+
+    private bool deleteFish = false;
 
     void Awake()
     {
@@ -34,32 +41,52 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       value = ChooseMenu();
+
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 999999))
             {
-                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("glass"))
+                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("glass") && value != null && NumOfFish < 12)
                 {
-                    GameObject fish = Instantiate(ChooseFish(), hit.point, Quaternion.identity);
-            
+                    GameObject fish = Instantiate(value, hit.point, Quaternion.identity);
+                    NumOfFish++;
                 }
+
+                if (deleteFish && hit.collider.gameObject.layer == LayerMask.NameToLayer("fish")){
+                        Destroy(hit.collider.gameObject);
+                        NumOfFish--;
+                }
+
             }
+            fishText.text = NumOfFish.ToString();
         }
     }
 
-    GameObject ChooseFish(){
+    GameObject ChooseMenu(){
         if (mySlider.value == 0){
+            deleteFish = false;
             return pufferfishPrefab;
         } else if (mySlider.value == 1){
+            deleteFish = false;
             return bettafishPrefab;
         } else if (mySlider.value == 2){
+            deleteFish = false;
             return parrotfishPrefab;
         } else if (mySlider.value == 3){
+            deleteFish = false;
             return swordfishPrefab;
-        } else {
+        } else if (mySlider.value == 4){
+            deleteFish = false;
             return lionfishPrefab;
+        } else if (mySlider.value == 5){
+            deleteFish = false;
+            return foodPrefab;
+        } else {
+            deleteFish = true;
+            return null;
         }
     }
 
