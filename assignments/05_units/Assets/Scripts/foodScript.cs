@@ -25,7 +25,6 @@ public class foodScript : MonoBehaviour
 
    void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("collided");
         if (collision.gameObject.CompareTag("Fish"))
         {
             GameManager.SharedInstance.foodList.RemoveAt(0);

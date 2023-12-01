@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8866248881035523790}
   m_Layer: 8
   m_Name: Fish Flakes
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,12 +64,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.7861889, y: 0.8638668, z: 0.8928384}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.61361015, y: 0.6609349, z: 0.277035}
+  m_Center: {x: -0.06276229, y: -0.036903143, z: 0}
 --- !u!54 &8866248881035523790
 Rigidbody:
   m_ObjectHideFlags: 0
