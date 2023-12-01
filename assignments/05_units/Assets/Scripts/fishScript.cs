@@ -4,6 +4,9 @@ using UnityEngine;
 
 
 public class fishScript : MonoBehaviour{
+private bool findingFood = false;
+
+Vector3 target; 
 
 bool direction = false;
 Vector3 swimming = new Vector3(1f,0f,0f);
@@ -24,7 +27,9 @@ float speed = 1;
     // Update is called once per frame
     void Update()
     {
+        
         Swim();
+        if (GameManager.SharedInstance.target == false){
 
         if (direction){
             currentEulerAngles = new Vector3(0f, -270f, 0f);
@@ -35,7 +40,10 @@ float speed = 1;
         }
 
         transform.eulerAngles = currentEulerAngles;
-
+        } else{
+        Vector3 newPosition = Vector3.MoveTowards(transform.position, target, speed * 5.0f * Time.deltaTime);
+        transform.position = newPosition;
+        }
     }
 
     private void Swim(){
@@ -50,5 +58,22 @@ float speed = 1;
     }
 
 
+    private void OnEnable()
+    {
+        GameManager.FoodSpawnedHappened += moveToFood;
+    }
 
+     private void OnDisable()
+    {
+
+        GameManager.FoodSpawnedHappened -= moveToFood;
+    }
+
+
+    private void moveToFood(Vector3 food)
+    {
+        target = food;
+    }
+
+     
 }
