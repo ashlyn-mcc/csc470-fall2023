@@ -14,7 +14,9 @@ Vector3 swimming = new Vector3(1f,0f,0f);
 Vector3 currentEulerAngles;
 
 float[] Speeds = {1f, 1.25f, 1.5f, 2.0f, 2.5f};
-float speed = 1;
+float[] Speeds2 = {2.5f, 2.75f, 3f, 3.25f, 3.5f, 3.75f, 4f, 4.25f, 4.5f};
+float speed = 0;
+float speed2 = 0;
 float hunger = 100.0f; 
 
     // Start is called before the first frame update
@@ -23,13 +25,18 @@ float hunger = 100.0f;
         System.Random random = new System.Random();      
         int index = random.Next(0, Speeds.Length);
         speed = Speeds[index];
+
+        System.Random random2 = new System.Random();      
+        int index2 = random2.Next(0, Speeds2.Length);
+        speed2 = Speeds2[index2];
+
         transform.position -= swimming * speed * Time.deltaTime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        hunger = hunger - 0.03f;
+        hunger = hunger - 0.01f;
 
         Swim();
         if (GameManager.SharedInstance.target == false){
@@ -45,13 +52,14 @@ float hunger = 100.0f;
         transform.eulerAngles = currentEulerAngles;
         } else{
         
-        if (target.x < 0f){
+        if (target.x < transform.position.x){
             currentEulerAngles = new Vector3(0f, -90f, 0f);
         } else {
             currentEulerAngles = new Vector3(0f, -270f, 0f);
         }
+
         transform.eulerAngles = currentEulerAngles;
-        Vector3 newPosition = Vector3.MoveTowards(transform.position, target, speed * 2.0f * Time.deltaTime);
+        Vector3 newPosition = Vector3.MoveTowards(transform.position, target, speed * speed2 * Time.deltaTime);
         transform.position = newPosition;
         }
 
