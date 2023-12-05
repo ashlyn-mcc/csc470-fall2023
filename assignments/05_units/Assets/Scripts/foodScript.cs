@@ -28,7 +28,7 @@ public class foodScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Fish"))
         {
             GameManager.SharedInstance.foodList.RemoveAt(0);
-            GameManager.SharedInstance.target = false;
+            //GameManager.SharedInstance.target = false;
             Destroy(gameObject);
         }
     }

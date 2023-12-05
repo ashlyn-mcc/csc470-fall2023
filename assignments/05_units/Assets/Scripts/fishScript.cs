@@ -44,6 +44,13 @@ float hunger = 100.0f;
 
         transform.eulerAngles = currentEulerAngles;
         } else{
+        
+        if (target.x < 0f){
+            currentEulerAngles = new Vector3(0f, -90f, 0f);
+        } else {
+            currentEulerAngles = new Vector3(0f, -270f, 0f);
+        }
+        transform.eulerAngles = currentEulerAngles;
         Vector3 newPosition = Vector3.MoveTowards(transform.position, target, speed * 2.0f * Time.deltaTime);
         transform.position = newPosition;
         }
@@ -83,7 +90,6 @@ float hunger = 100.0f;
 
      private void OnDisable()
     {
-
         GameManager.FoodSpawnedHappened -= moveToFood;
     }
 

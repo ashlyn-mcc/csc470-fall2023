@@ -59,7 +59,6 @@ public class GameManager : MonoBehaviour
                     GameObject food = Instantiate(value, hit.point, Quaternion.identity);
                     foodList.Add(food.transform.position);
                     target = true;
-                    FoodSpawnedHappened?.Invoke(foodList[0]);
 
                     } else if (NumOfFish < 12){
                     GameObject fish = Instantiate(value, hit.point, Quaternion.identity);
@@ -76,6 +75,20 @@ public class GameManager : MonoBehaviour
             }
             fishText.text = NumOfFish.ToString();
         }
+
+        if (GameObject.FindGameObjectsWithTag("Food").Length == 0){
+            target = false;
+        }
+
+        if (target){
+            FoodSpawnedHappened?.Invoke(foodList[0]);
+            if (foodList[0] == null){
+                foodList.RemoveAt(0);   
+            }
+        }
+
+       
+
     }
 
     GameObject ChooseMenu(){
