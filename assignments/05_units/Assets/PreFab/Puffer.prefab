@@ -975,7 +975,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 1
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -5226,6 +5226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   hunger: 100
+  level: 0
 --- !u!95 &-1159861877560642867
 Animator:
   serializedVersion: 5
