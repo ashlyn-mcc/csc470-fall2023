@@ -10,14 +10,16 @@ public class GameManager : MonoBehaviour
     public List<Vector3> foodList;
     public static event Action<Vector3> FoodSpawnedHappened;
 
+    public GameObject fishPanel;
     public bool target = false;
     private int NumOfFish = 0;
     private GameObject value;
     public static GameManager SharedInstance;
-
+    private fishScript clickedFish;
     public TMP_Text fishText;
+    public TMP_Text hungerText;
     public Slider mySlider;
-
+    private float originalSpeed;
     fishScript selectedUnit;
 
     public GameObject pufferfishPrefab;
@@ -26,7 +28,7 @@ public class GameManager : MonoBehaviour
     public GameObject swordfishPrefab;
     public GameObject lionfishPrefab;
     public GameObject foodPrefab;
-
+    private float displayHunger;
     private bool deleteFish = false;
 
     void Awake()
@@ -66,6 +68,15 @@ public class GameManager : MonoBehaviour
                     }
         
                 }
+
+                if (!deleteFish && hit.collider.gameObject.layer == LayerMask.NameToLayer("fish")){
+                    fishPanel.gameObject.SetActive(true);
+                    clickedFish = hit.collider.gameObject.GetComponent<fishScript>();
+                    displayHunger = clickedFish.hunger;
+                    originalSpeed = clickedFish.speed;
+                    clickedFish.speed = 0;
+                    hungerText.text = displayHunger.ToString();
+                } 
 
                 if (deleteFish && hit.collider.gameObject.layer == LayerMask.NameToLayer("fish")){
                         Destroy(hit.collider.gameObject);

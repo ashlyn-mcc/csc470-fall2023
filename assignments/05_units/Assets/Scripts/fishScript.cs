@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class fishScript : MonoBehaviour{
 private bool findingFood = false;
 Vector3 target; 
 private MeshRenderer exclamationRenderer;
 private MeshRenderer pointRenderer;
+private AudioSource splashAudio;
 
 bool direction = false;
 Vector3 swimming = new Vector3(1f,0f,0f);
@@ -15,9 +15,11 @@ Vector3 currentEulerAngles;
 
 float[] Speeds = {1f, 1.25f, 1.5f, 2.0f, 2.5f};
 float[] Speeds2 = {2.5f, 2.75f, 3f, 3.25f, 3.5f, 3.75f, 4f, 4.25f, 4.5f};
-float speed = 0;
+public float speed = 0;
 float speed2 = 0;
-float hunger = 100.0f; 
+public float hunger = 100.0f; 
+
+private bool created = true;
 
     // Start is called before the first frame update
     void Start()
@@ -31,11 +33,19 @@ float hunger = 100.0f;
         speed2 = Speeds2[index2];
 
         transform.position -= swimming * speed * Time.deltaTime;
+
+        splashAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (created){
+        splashAudio.Play();
+        created = false;
+        }
+
         hunger = hunger - 0.01f;
 
         Swim();
