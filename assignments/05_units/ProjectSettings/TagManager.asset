@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Fish
   - Food
+  - sword
+  - puffer
+  - parrot
+  - lion
+  - betta
   layers:
   - Default
   - TransparentFX

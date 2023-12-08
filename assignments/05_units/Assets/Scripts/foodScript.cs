@@ -25,7 +25,7 @@ public class foodScript : MonoBehaviour
 
    void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Fish"))
+        if (collision.gameObject.CompareTag("sword") || collision.gameObject.CompareTag("puffer") || collision.gameObject.CompareTag("parrot") || collision.gameObject.CompareTag("lion") || collision.gameObject.CompareTag("betta"))
         {
             GameManager.SharedInstance.foodList.RemoveAt(0);
             //GameManager.SharedInstance.target = false;

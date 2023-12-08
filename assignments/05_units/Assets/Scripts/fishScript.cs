@@ -21,6 +21,10 @@ public float hunger = 100.0f;
 
 private bool created = true;
 
+private float spawnTime;
+private float timeAlive;
+public int level;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,12 +39,17 @@ private bool created = true;
         transform.position -= swimming * speed * Time.deltaTime;
 
         splashAudio = GetComponent<AudioSource>();
+
+        spawnTime = Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        timeAlive = Time.time - spawnTime;
+        Debug.Log("Time elapsed" + timeAlive);
+        Level();
+        
         if (created){
         splashAudio.Play();
         created = false;
@@ -122,6 +131,22 @@ private bool created = true;
         if (collision.gameObject.CompareTag("Food"))
         {
             hunger += 20.0f;
+        }
+    }
+
+    void Level(){
+        if (timeAlive > 300){
+            level = 5;
+        } else if (timeAlive > 240){
+            level = 4;
+        } else if (timeAlive > 180){
+            level = 3;
+        } else if (timeAlive > 120){
+            level = 2;
+        } else if (timeAlive > 60){
+            level = 1;
+        } else {
+            level = 0;
         }
     }
 }
