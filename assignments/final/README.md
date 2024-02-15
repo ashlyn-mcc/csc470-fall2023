@@ -1,3 +1,7 @@
+The website and trailer for my game can be found at ashlynmcclendon.com/tanked
+
+
+
 Ashlyn McClendon Final Project Proposal (Due 12/1)
 
 For my final project I want to build off of my 05_units assignments. For that project, I created a fish tank with fish that have hunger metrics. I really like the design of this project, but I want to take the current work I’ve done on it and turn it from a demo into a working game.
