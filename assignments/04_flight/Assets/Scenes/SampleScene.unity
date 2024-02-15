@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 139305141578353237, guid: 9f9a1c4fb874a455ea2be514f28ce618, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 767082968817176815, guid: 9f9a1c4fb874a455ea2be514f28ce618, type: 3}
       propertyPath: m_LocalPosition.x
       value: -725
